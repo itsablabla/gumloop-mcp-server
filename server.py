@@ -743,7 +743,7 @@ async def root(request: Request):
 
 # ─── App Assembly ────────────────────────────────────────────────────────────────
 
-app = mcp.http_app(path="/mcp")
+app = mcp.http_app(path="/mcp", stateless_http=True)
 app.add_middleware(BearerAuthMiddleware)
 app.add_route("/health", health, methods=["GET"])
 app.add_route("/", root, methods=["GET"])
